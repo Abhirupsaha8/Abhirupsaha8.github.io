@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My GitHub Page</title>
+  <meta charset="UTF-8">
+  <title>Video Stereo Pan</title>
 </head>
 <body>
-  <h1>Hello GitHub Pages</h1>
-  <p>This is my website.</p>
+
+<h3>Video with Stereo Pan</h3>
+
+<video id="video" width="640" controls>
+  <source src="video/output_Mahler.mp4" type="video/mp4">
+</video>
+
+<br><br>
+
+<label for="pan">Pan:</label>
+<input type="range" id="pan" min="-1" max="1" step="0.01" value="0">
+<span id="panValue">0</span>
+
+<script>
+  const video = document.getElementById("video");
+  const panSlider = document.getElementById("pan");
+  const panValue = document.getElementById("panValue");
+
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+  const source = audioCtx.createMediaElementSource(video);
+  const panner = audioCtx.createStereoPanner();
+
+  source.connect(panner).connect(audioCtx.destination);
+
+  panSlider.addEventListener("input", () => {
+    panner.pan.value = panSlider.value;
+    panValue.textContent = panSlider.value;
+  });
+
+  video.addEventListener("play", () => {
+    if (audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
+  });
+</script>
+
 </body>
 </html>

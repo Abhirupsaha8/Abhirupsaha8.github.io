@@ -26,12 +26,20 @@
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
   const source = audioCtx.createMediaElementSource(video);
+
+  // 🔒 FORCE STEREO
+  source.channelCount = 2;
+  source.channelCountMode = "explicit";
+  source.channelInterpretation = "speakers";
+
+  console.log("Decoded channels:", source.channelCount);
+
   const panner = audioCtx.createStereoPanner();
 
   source.connect(panner).connect(audioCtx.destination);
 
   panSlider.addEventListener("input", () => {
-    panner.pan.value = panSlider.value;
+    panner.pan.value = parseFloat(panSlider.value);
     panValue.textContent = panSlider.value;
   });
 
@@ -41,6 +49,7 @@
     }
   });
 </script>
+
 
 </body>
 </html>

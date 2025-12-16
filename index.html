@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Video Stereo Pan</title>
+  <title>Video True Stereo Pan</title>
 </head>
 <body>
 
-<h3>Video with Stereo Pan</h3>
+<h3>Video with True Stereo Pan</h3>
 
 <video id="video" width="640" controls>
   <source src="./output_Mahler_20s.mp4" type="video/mp4">
@@ -23,33 +23,47 @@
   const panSlider = document.getElementById("pan");
   const panValue = document.getElementById("panValue");
 
+  // Create AudioContext
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
+  // Create media source
   const source = audioCtx.createMediaElementSource(video);
 
-  // 🔒 FORCE STEREO
+  // Force stereo
   source.channelCount = 2;
   source.channelCountMode = "explicit";
   source.channelInterpretation = "speakers";
+  console.log("Decoded channels:", source.channelCount); // should be 2
 
-  console.log("Decoded channels:", source.channelCount);
+  // Split channels
+  const splitter = audioCtx.createChannelSplitter(2);
+  const gainL = audioCtx.createGain();
+  const gainR = audioCtx.createGain();
+  const merger = audioCtx.createChannelMerger(2);
 
-  const panner = audioCtx.createStereoPanner();
+  // Connect chain: source -> splitter -> gains -> merger -> destination
+  source.connect(splitter);
+  splitter.connect(gainL, 0); // left channel
+  splitter.connect(gainR, 1); // right channel
+  gainL.connect(merger, 0, 0);
+  gainR.connect(merger, 0, 1);
+  merger.connect(audioCtx.destination);
 
-  source.connect(panner).connect(audioCtx.destination);
-
+  // Pan slider logic: -1 = left only, 0 = center, +1 = right only
   panSlider.addEventListener("input", () => {
-    panner.pan.value = parseFloat(panSlider.value);
-    panValue.textContent = panSlider.value;
+    const pan = parseFloat(panSlider.value);
+    gainL.gain.value = pan <= 0 ? 1 : 1 - pan;
+    gainR.gain.value = pan >= 0 ? 1 : 1 + pan;
+    panValue.textContent = pan.toFixed(2);
   });
 
+  // Resume AudioContext on play (needed for most browsers)
   video.addEventListener("play", () => {
     if (audioCtx.state === "suspended") {
       audioCtx.resume();
     }
   });
 </script>
-
 
 </body>
 </html>

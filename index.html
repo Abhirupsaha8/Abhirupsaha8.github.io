@@ -2,83 +2,327 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Video True Stereo Pan</title>
+  <title>Research Project: True Stereo Video Pan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+    }
+
+    .authors {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .abstract {
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      text-align: justify;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .video-container {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .video-container label {
+      margin-right: 10px;
+    }
+
+    input[type=range] {
+      width: 150px;
+      vertical-align: middle;
+    }
+  </style>
 </head>
 <body>
 
-<h3>Video with True Stereo Pan</h3>
+<h1>Research Project: True Stereo Video Pan</h1>
+<h2>Abhirup Saha, Author2, Author3, Author4</h2>
 
-<video id="video" width="640" controls>
-  <source src="./videos/mozart_VA.mp4" type="video/mp4">
-</video>
+<div class="abstract">
+  <h3>Abstract</h3>
+  <p>
+    This research project demonstrates the implementation of true stereo panning for video audio tracks.
+    Eighteen orchestral video clips are presented, each with an interactive pan control allowing
+    manipulation of stereo balance in real-time. The system leverages the Web Audio API
+    to split, process, and merge audio channels for precise spatial audio control.
+  </p>
+</div>
 
-<br><br>
+<div class="video-grid">
+  <!-- Repeat this block for 18 videos -->
+  <div class="video-container">
+    <h3>Video 1</h3>
+    <video id="video1" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan1">Pan:</label>
+    <input type="range" id="pan1" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue1">0</span>
+  </div>
 
-<label for="pan">Pan:</label>
-<input type="range" id="pan" min="-1" max="1" step="0.01" value="0">
-<span id="panValue">0</span>
+  <div class="video-container">
+    <h3>Video 2</h3>
+    <video id="video2" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan2">Pan:</label>
+    <input type="range" id="pan2" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue2">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 3</h3>
+    <video id="video1" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan1">Pan:</label>
+    <input type="range" id="pan1" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue1">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 4</h3>
+    <video id="video2" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan2">Pan:</label>
+    <input type="range" id="pan2" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue2">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 1</h3>
+    <video id="video1" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan1">Pan:</label>
+    <input type="range" id="pan1" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue1">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 2</h3>
+    <video id="video2" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan2">Pan:</label>
+    <input type="range" id="pan2" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue2">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 1</h3>
+    <video id="video1" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan1">Pan:</label>
+    <input type="range" id="pan1" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue1">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 2</h3>
+    <video id="video2" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan2">Pan:</label>
+    <input type="range" id="pan2" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue2">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 1</h3>
+    <video id="video1" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan1">Pan:</label>
+    <input type="range" id="pan1" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue1">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 2</h3>
+    <video id="video2" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan2">Pan:</label>
+    <input type="range" id="pan2" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue2">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 1</h3>
+    <video id="video1" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan1">Pan:</label>
+    <input type="range" id="pan1" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue1">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 2</h3>
+    <video id="video2" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan2">Pan:</label>
+    <input type="range" id="pan2" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue2">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 1</h3>
+    <video id="video1" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan1">Pan:</label>
+    <input type="range" id="pan1" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue1">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 2</h3>
+    <video id="video2" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan2">Pan:</label>
+    <input type="range" id="pan2" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue2">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 1</h3>
+    <video id="video1" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan1">Pan:</label>
+    <input type="range" id="pan1" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue1">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 2</h3>
+    <video id="video2" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan2">Pan:</label>
+    <input type="range" id="pan2" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue2">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 1</h3>
+    <video id="video1" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan1">Pan:</label>
+    <input type="range" id="pan1" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue1">0</span>
+  </div>
+
+  <div class="video-container">
+    <h3>Video 2</h3>
+    <video id="video2" width="100%" controls>
+      <source src="./videos/mozart_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan2">Pan:</label>
+    <input type="range" id="pan2" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue2">0</span>
+  </div>
+
+</div>
 
 <script>
-  const video = document.getElementById("video");
-  const panSlider = document.getElementById("pan");
-  const panValue = document.getElementById("panValue");
+  // Function to setup stereo pan for a video
+  function setupStereoPan(videoId, panId, panValueId) {
+    const video = document.getElementById(videoId);
+    const panSlider = document.getElementById(panId);
+    const panValue = document.getElementById(panValueId);
 
-  // Create AudioContext
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const source = audioCtx.createMediaElementSource(video);
 
-  // Create media source
-  const source = audioCtx.createMediaElementSource(video);
+    // Force stereo
+    source.channelCount = 2;
+    source.channelCountMode = "explicit";
+    source.channelInterpretation = "speakers";
 
-  // Force stereo
-  source.channelCount = 2;
-  source.channelCountMode = "explicit";
-  source.channelInterpretation = "speakers";
-  console.log("Decoded channels:", source.channelCount); // should be 2
+    const splitter = audioCtx.createChannelSplitter(2);
+    const gainL = audioCtx.createGain();
+    const gainR = audioCtx.createGain();
+    const merger = audioCtx.createChannelMerger(2);
 
-  // Split channels
-  const splitter = audioCtx.createChannelSplitter(2);
-const gainL = audioCtx.createGain();
-const gainR = audioCtx.createGain();
-const merger = audioCtx.createChannelMerger(2);
+    source.connect(splitter);
+    splitter.connect(gainL, 0);
+    splitter.connect(gainR, 1);
+    gainL.connect(merger, 0, 0);
+    gainR.connect(merger, 0, 1);
+    merger.connect(audioCtx.destination);
 
-source.connect(splitter);
+    panSlider.addEventListener("input", () => {
+      const pan = parseFloat(panSlider.value);
+      if (pan < 0) {
+          gainL.gain.value = 1;
+          gainR.gain.value = 1 + pan;
+      } else {
+          gainL.gain.value = 1 - pan;
+          gainR.gain.value = 1;
+      }
+      panValue.textContent = pan.toFixed(2);
+    });
 
-// Left channel
-splitter.connect(gainL, 0);
-gainL.connect(merger, 0, 0); // connect left to left output
+    video.addEventListener("play", () => {
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+    });
+  }
 
-// Right channel
-splitter.connect(gainR, 1);
-gainR.connect(merger, 0, 1); // connect right to right output
-
-merger.connect(audioCtx.destination);
-
-// Pan logic: move content between left and right
-panSlider.addEventListener("input", () => {
-    const pan = parseFloat(panSlider.value);
-
-    // Linear pan:
-    // -1 = only left
-    // 0 = both channels
-    // 1 = only right
-    if (pan < 0) {
-        gainL.gain.value = 1;
-        gainR.gain.value = 1 + pan; // pan is negative, gainR < 1
-    } else {
-        gainL.gain.value = 1 - pan; // gainL < 1
-        gainR.gain.value = 1;
-    }
-
-    panValue.textContent = pan.toFixed(2);
-});
-
-
-  // Resume AudioContext on play (needed for most browsers)
-  video.addEventListener("play", () => {
-    if (audioCtx.state === "suspended") {
-      audioCtx.resume();
-    }
-  });
+  // Setup 18 videos
+  for (let i = 1; i <= 18; i++) {
+    setupStereoPan(`video${i}`, `pan${i}`, `panValue${i}`);
+  }
 </script>
 
 </body>

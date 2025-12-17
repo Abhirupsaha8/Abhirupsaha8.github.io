@@ -58,16 +58,13 @@
 </head>
 <body>
 
-<h1>Research Project: True Stereo Video Pan</h1>
-<h2>Abhirup Saha, Author2, Author3, Author4</h2>
+<h1>Snapping Matters: Context-Aware Onset Refinement for Automatic Music Transcription</h1>
+<h2>Abhirup Saha, Hans-Ulrich Berendes, Meinard Müller, Ben Maman</h2>
 
 <div class="abstract">
   <h3>Abstract</h3>
   <p>
-    This research project demonstrates the implementation of true stereo panning for video audio tracks.
-    Eighteen orchestral video clips are presented, each with an interactive pan control allowing
-    manipulation of stereo balance in real-time. The system leverages the Web Audio API
-    to split, process, and merge audio channels for precise spatial audio control.
+    Precise note-onset timing is crucial for training automatic music transcription (AMT) systems, yet onset-accurate annotations for real-world recordings are scarce. Sequence-level score–audio alignment methods such as dynamic time warping provide only coarse correspondence, making an onset-level refinement step necessary. This refinement step, known as snapping, adjusts aligned score onsets using peaks in a neural onset posteriorgram and often determines whether weakly aligned score--audio pairs become usable training data at all. Despite its practical importance, snapping is typically treated as a simple post-processing heuristic and implemented with greedy local decisions. We present a systematic analysis of snapping strategies for training instrument-agnostic transcribers, demonstrating that snapping is essential for learning from weakly aligned data. Building on this, we formulate snapping as a per-pitch assignment problem and solve it via bipartite graph matching, yielding context-aware onset decisions under overlapping refinement windows and uncertain initial alignments. Extensive cross-dataset experiments across piano, chamber, and orchestral recordings show improved onset alignment and transcription accuracy over greedy snapping, with gains increasing for wider snapping windows and coarser initial alignments.
   </p>
 </div>
 

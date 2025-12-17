@@ -2,59 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Research Project: True Stereo Video Pan</title>
-  <style>
-    body {
-      font-family: 'Courier New', monospace;
-      margin: 20px;
-      background-color: #ffffff;
-    }
+  <title>Snapping</title>
+<!-- Add this in your <head> -->
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    h1, h2, h3 {
-      text-align: center;
-    }
+<style>
+  body {
+    font-family: 'Roboto', sans-serif; /* Modern, readable body font */
+    margin: 20px;
+    background-color: #ffffff;
+    color: #111; /* Dark text for readability */
+  }
 
-    .authors {
-      text-align: center;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
+  h1, h2, h3 {
+    font-family: 'Merriweather', serif; /* Professional, academic headings */
+    text-align: center;
+    font-weight: 700;
+    color: #222;
+  }
 
-    .abstract {
-      max-width: 900px;
-      margin: 0 auto 40px auto;
-      text-align: justify;
-      padding: 10px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+  .authors {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
 
-    .video-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+  .abstract {
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    text-align: justify;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-size: 16px;
+    line-height: 1.6;
+  }
 
-    .video-container {
-      background-color: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-    .video-container label {
-      margin-right: 10px;
-    }
+  .video-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
 
-    input[type=range] {
-      width: 150px;
-      vertical-align: middle;
-    }
-  </style>
+  .video-container label {
+    margin-right: 10px;
+  }
+
+  input[type=range] {
+    width: 150px;
+    vertical-align: middle;
+  }
+</style>
+
 </head>
 <body>
 

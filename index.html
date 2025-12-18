@@ -82,9 +82,18 @@
   <!-- 1 -->
   <div class="video-container">
     <h3>Orchestral Music<br>PHENICX<br>Example-1</h3>
-    <video id="video1" width="100%" controls>
+  
+    <video
+      id="video1"
+      class="segmented-video"
+      width="100%"
+      controls
+      data-start="32.5"
+      data-end="48.0"
+    >
       <source src="./videos/mahler_VA.mp4" type="video/mp4">
     </video>
+  
     <br><br>
     <label for="pan1">Pan:</label>
     <input type="range" id="pan1" min="-1" max="1" step="0.01" value="0">
@@ -331,6 +340,30 @@
     setupStereoPan(`video${i}`, `pan${i}`, `panValue${i}`);
   }
 </script>
+
+<script>
+  document.querySelectorAll(".segmented-video").forEach(video => {
+    const start = parseFloat(video.dataset.start);
+    const end = parseFloat(video.dataset.end);
+
+    video.addEventListener("loadedmetadata", () => {
+      video.currentTime = start;
+    });
+
+    video.addEventListener("timeupdate", () => {
+      if (video.currentTime >= end) {
+        video.pause();
+        video.currentTime = end;
+      }
+    });
+
+    video.addEventListener("seeking", () => {
+      if (video.currentTime < start) video.currentTime = start;
+      if (video.currentTime > end) video.currentTime = end;
+    });
+  });
+</script>
+
 
 </body>
 </html>

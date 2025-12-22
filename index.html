@@ -229,6 +229,50 @@
     <input type="range" id="pan18" min="-1" max="1" step="0.01" value="0">
     <span id="panValue18">0</span>
   </div>
+  <!-- 19 -->
+  <div class="video-container">
+    <h3>Jazz Duo<br>Piano, Mandolin</h3>
+    <video id="video19" width="100%" controls>
+      <source src="./videos/External-1_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan19">Pan:</label>
+    <input type="range" id="pan19" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue19">0</span>
+  </div>
+  <!-- 20 -->
+  <div class="video-container">
+    <h3>Jazz Duo<br>Piano, Harp</h3>
+    <video id="video20" width="100%" controls>
+      <source src="./videos/External-2_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan20">Pan:</label>
+    <input type="range" id="pan20" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue20">0</span>
+  </div>
+  <!-- 21 -->
+  <div class="video-container">
+    <h3>Piano Concerto<br>Chopin Piano Concerto No.1</h3>
+    <video id="video21" width="100%" controls>
+      <source src="./videos/External-3_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan21">Pan:</label>
+    <input type="range" id="pan21" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue21">0</span>
+  </div>
+  <!-- 22 -->
+  <div class="video-container">
+    <h3>Swing Jazz Guitar<br>Bistro Fada</h3>
+    <video id="video22" width="100%" controls>
+      <source src="./videos/External-4_VA.mp4" type="video/mp4">
+    </video>
+    <br><br>
+    <label for="pan22">Pan:</label>
+    <input type="range" id="pan22" min="-1" max="1" step="0.01" value="0">
+    <span id="panValue22">0</span>
+  </div>
 
 </div>
 
@@ -279,7 +323,7 @@
   }
 
   // Setup 18 videos
-  for (let i = 1; i <= 18; i++) {
+  for (let i = 1; i <= 22; i++) {
     setupStereoPan(`video${i}`, `pan${i}`, `panValue${i}`);
   }
 </script>
